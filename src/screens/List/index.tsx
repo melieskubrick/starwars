@@ -8,16 +8,15 @@ import {Container} from '../../config/generalStyles';
 import colors from '../../config/colors';
 import ItemList from '../../components/ItemList';
 import {FlatList} from 'react-native-gesture-handler';
+import typography from '../../config/typography';
 
-const List = () => {
-  const data = [{title: 'Luke Skywalker', description: 'Masculino'}];
+const List = ({title}) => {
+  const data = [{title: 'Luke Skywalker', description: 'Masculino'}, {title: 'Luke Skywalker', description: 'Masculino'}];
 
   return (
     <>
       <Header
-        centerComponent={
-          <Logo source={require('../../assets/images/logo.png')} />
-        }
+        centerComponent={{ text: `${title}`, style: { color: colors.white, fontSize: 18, fontFamily: typography.bold } }}
         containerStyle={{
           backgroundColor: colors.primary,
           borderBottomWidth: 0,

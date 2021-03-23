@@ -2,12 +2,13 @@ import colors from '../../config/colors';
 import styled from 'styled-components/native';
 import typography from '../../config/typography';
 
-export const Card = styled.View`
+export const Card = styled.TouchableOpacity`
   padding: 24px;
   border-radius: 10px;
   background: ${colors.darkBlue};
   flex-direction: row;
   align-items: center;
+  margin: 5px 0;
 `;
 
 export const Right = styled.View`
@@ -38,6 +39,6 @@ export const Title = styled.Text`
 
 export const Description = styled.Text`
   font-size: 18px;
-  font-family: ${typography.regular};
+  font-family: ${typography.light};
   color: ${colors.white};
 `;
