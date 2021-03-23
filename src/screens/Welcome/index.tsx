@@ -9,7 +9,7 @@ import {Actions} from 'react-native-router-flux';
 
 const Welcome = () => {
   return (
-    <Container>
+    <Container style={{justifyContent: 'center'}}>
       <Center>
         <StatusBar
           translucent

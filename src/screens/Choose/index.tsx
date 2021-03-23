@@ -6,6 +6,7 @@ import {Container} from '../../config/generalStyles';
 import {Logo, Wrap, List} from './styles';
 import colors from '../../config/colors';
 import {CardSelect} from '../../components/CardSelect';
+import { Actions } from 'react-native-router-flux';
 
 const Choose: React.FC = () => {
   return (
@@ -26,7 +27,7 @@ const Choose: React.FC = () => {
               color={colors.red}
               title={'PERSONAGENS'}
               icon={require('../../assets/images/personagens.png')}
-              onPress={() => console.log()}
+              onPress={() => Actions.list()}
               small
             />
             <CardSelect
