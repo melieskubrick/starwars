@@ -2,11 +2,9 @@ import typography from '../../config/typography';
 import styled from 'styled-components/native';
 import colors from '../../config/colors';
 
-export const Container = styled.View`
+export const Center = styled.View`
   flex: 1;
-  background: ${colors.primary};
   justify-content: center;
-  padding: 0 24px;
 `;
 
 export const Logo = styled.Image`
