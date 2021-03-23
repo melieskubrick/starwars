@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import {StatusBar} from 'react-native';
 
-import {Header} from 'react-native-elements';
+import {Header, Text} from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 import {FlatList} from 'react-native-gesture-handler';
 
@@ -15,12 +15,16 @@ import { useFetch } from '../../services/api';
 
 interface ListProps {
   title: string;
-  dataUrl: string
+  params: Array<object>;
 }
 
-const List: React.FC<ListProps> = ({title, dataUrl}) => {
+const List: React.FC<ListProps> = ({title, params}) => {
 
-  const { data } = useFetch('planets');
+  const { data } = useFetch(params.urlData);
+
+  if (!data) {
+    return <Text>Carregando...</Text>;
+  }
 
   return (
     <>
@@ -48,10 +52,10 @@ const List: React.FC<ListProps> = ({title, dataUrl}) => {
           data={data.results}
           renderItem={({item}) => (
             <ItemList
-              title={item.name}
-              description={item.rotation_period}
+              title={item[params.name]}
+              description={item[params.desc]}
               imageText={'LS'}
-              onPress={() => Actions.detail({title: item.name})}
+              onPress={() => Actions.detail({title: item[params.name]})}
             />
           )}
           keyExtractor={item => `${item.name}`}

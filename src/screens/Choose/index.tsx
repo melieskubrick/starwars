@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {Header} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
@@ -9,7 +9,13 @@ import {Container} from '../../config/generalStyles';
 import colors from '../../config/colors';
 import {CardSelect} from '../../components/CardSelect';
 
+import {cards} from './cards';
+
 const Choose: React.FC = () => {
+  useEffect(() => {
+    console.log(cards[0].name);
+  }, []);
+
   return (
     <>
       <Header
@@ -24,43 +30,17 @@ const Choose: React.FC = () => {
       <Container>
         <List>
           <Wrap>
-            <CardSelect
-              color={colors.red}
-              title={'PERSONAGENS'}
-              icon={require('../../assets/images/personagens.png')}
-              onPress={() => Actions.list({title: 'PERSONAGENS', dataUrl: 'people'})}
-              small
-            />
-            <CardSelect
-              color={colors.blue}
-              title={'PLANETAS'}
-              icon={require('../../assets/images/planetas.png')}
-              onPress={() => Actions.list({title: 'PLANETAS', dataUrl: 'planets'})}
-            />
-            <CardSelect
-              color={colors.yellow}
-              title={'NAVES'}
-              icon={require('../../assets/images/naves.png')}
-              onPress={() => console.log()}
-            />
-            <CardSelect
-              color={colors.purple}
-              title={'FILMES'}
-              icon={require('../../assets/images/filmes.png')}
-              onPress={() => console.log()}
-            />
-            <CardSelect
-              color={colors.orange}
-              title={'VEÍCULOS'}
-              icon={require('../../assets/images/veiculos.png')}
-              onPress={() => console.log()}
-            />
-            <CardSelect
-              color={colors.green}
-              title={'ESPÉCIES'}
-              icon={require('../../assets/images/especies.png')}
-              onPress={() => console.log()}
-            />
+            {cards.map(item => (
+              <CardSelect
+                color={item.color}
+                title={item.name}
+                icon={item.icon}
+                onPress={() =>
+                  Actions.list({title: item.name, params: item.params})
+                }
+                smallTitle={item.small}
+              />
+            ))}
           </Wrap>
         </List>
       </Container>
