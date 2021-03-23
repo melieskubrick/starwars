@@ -11,7 +11,10 @@ export const Logo = styled.Image`
   margin: 0 0 10px 0;
 `;
 
-export const Wrap = styled.View`
+export const Wrap = styled.View.attrs({
+  marginHorizontal: -16
+})`
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center
 `;

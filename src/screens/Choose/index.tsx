@@ -23,8 +23,16 @@ const Choose: React.FC = () => {
       />
       <Container>
         <Wrap>
+          <CardSelect
+            color={colors.red}
+            title={'PERSONAGENS'}
+            icon={require('../../assets/images/personagens.png')}
+          />
+          <CardSelect color={colors.blue} title={'PERSONAGENS'} />
           <CardSelect color={colors.yellow} title={'PERSONAGENS'} />
-          <CardSelect color={colors.yellow} title={'PERSONAGENS'} />
+          <CardSelect color={colors.purple} title={'PERSONAGENS'} />
+          <CardSelect color={colors.orange} title={'PERSONAGENS'} />
+          <CardSelect color={colors.green} title={'PERSONAGENS'} />
         </Wrap>
       </Container>
     </>
