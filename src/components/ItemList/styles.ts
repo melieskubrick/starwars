@@ -25,10 +25,9 @@ export const Image = styled.View`
 `;
 
 export const TextImage = styled.Text`
-  font-size: 24px;
+  font-size: 30px;
   font-family: ${typography.regular};
   color: ${colors.darkBlue};
-  text-align: center;
 `;
 
 export const Title = styled.Text`
