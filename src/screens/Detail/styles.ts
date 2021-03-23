@@ -1,5 +1,11 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+export const List = styled.ScrollView``;
 
+export const Wrap = styled.View.attrs({
+  marginHorizontal: -16,
+})`
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
