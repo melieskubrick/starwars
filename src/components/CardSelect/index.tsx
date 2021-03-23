@@ -8,6 +8,7 @@ interface CardSelectProps {
   title: string;
   color: string;
   icon: string;
+  small?: boolean;
   onPress: (event: GestureResponderEvent) => void;
 }
 
@@ -16,10 +17,11 @@ export const CardSelect: React.FC<CardSelectProps> = ({
   color,
   icon,
   onPress,
+  small,
 }) => {
   return (
     <Card bgColor={color} onPress={onPress}>
-      <Title>{title}</Title>
+      <Title small={small}>{title}</Title>
       <Image source={icon} />
     </Card>
   );

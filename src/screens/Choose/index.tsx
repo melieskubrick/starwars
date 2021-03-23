@@ -27,12 +27,39 @@ const Choose: React.FC = () => {
             color={colors.red}
             title={'PERSONAGENS'}
             icon={require('../../assets/images/personagens.png')}
+            onPress={() => console.log()}
+            small
           />
-          <CardSelect color={colors.blue} title={'PERSONAGENS'} />
-          <CardSelect color={colors.yellow} title={'PERSONAGENS'} />
-          <CardSelect color={colors.purple} title={'PERSONAGENS'} />
-          <CardSelect color={colors.orange} title={'PERSONAGENS'} />
-          <CardSelect color={colors.green} title={'PERSONAGENS'} />
+          <CardSelect
+            color={colors.blue}
+            title={'PLANETAS'}
+            icon={require('../../assets/images/planetas.png')}
+            onPress={() => console.log()}
+          />
+          <CardSelect
+            color={colors.yellow}
+            title={'NAVES'}
+            icon={require('../../assets/images/naves.png')}
+            onPress={() => console.log()}
+          />
+          <CardSelect
+            color={colors.purple}
+            title={'FILMES'}
+            icon={require('../../assets/images/filmes.png')}
+            onPress={() => console.log()}
+          />
+          <CardSelect
+            color={colors.orange}
+            title={'VEÍCULOS'}
+            icon={require('../../assets/images/veiculos.png')}
+            onPress={() => console.log()}
+          />
+          <CardSelect
+            color={colors.green}
+            title={'ESPÉCIES'}
+            icon={require('../../assets/images/especies.png')}
+            onPress={() => console.log()}
+          />
         </Wrap>
       </Container>
     </>
