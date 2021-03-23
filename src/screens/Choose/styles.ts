@@ -4,6 +4,8 @@ export const Container = styled.View`
   flex: 1;
 `;
 
+export const List = styled.ScrollView``
+
 export const Logo = styled.Image`
   align-self: center;
   height: 36px;
