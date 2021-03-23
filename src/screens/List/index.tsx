@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {StatusBar} from 'react-native';
 
 import {Header} from 'react-native-elements';
@@ -11,16 +11,16 @@ import ItemList from '../../components/ItemList';
 import colors from '../../config/colors';
 import {Container} from '../../config/generalStyles';
 import typography from '../../config/typography';
+import { useFetch } from '../../services/api';
 
 interface ListProps {
   title: string;
+  dataUrl: string
 }
 
-const List: React.FC<ListProps> = ({title}) => {
-  const data = [
-    {id: 0, title: 'Luke Skywalker', description: 'Masculino'},
-    {title: 'Luke Skywalker', description: 'Masculino'},
-  ];
+const List: React.FC<ListProps> = ({title, dataUrl}) => {
+
+  const { data } = useFetch('planets');
 
   return (
     <>
@@ -45,16 +45,16 @@ const List: React.FC<ListProps> = ({title}) => {
           backgroundColor={colors.darkBlue}
         />
         <FlatList
-          data={data}
+          data={data.results}
           renderItem={({item}) => (
             <ItemList
-              title={item.title}
-              description={item.description}
+              title={item.name}
+              description={item.rotation_period}
               imageText={'LS'}
-              onPress={() => Actions.detail({title: item.title})}
+              onPress={() => Actions.detail({title: item.name})}
             />
           )}
-          keyExtractor={item => `${item.id}`}
+          keyExtractor={item => `${item.name}`}
         />
       </Container>
     </>

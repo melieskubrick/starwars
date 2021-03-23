@@ -28,14 +28,14 @@ const Choose: React.FC = () => {
               color={colors.red}
               title={'PERSONAGENS'}
               icon={require('../../assets/images/personagens.png')}
-              onPress={() => Actions.list({title: 'PERSONAGENS'})}
+              onPress={() => Actions.list({title: 'PERSONAGENS', dataUrl: 'people'})}
               small
             />
             <CardSelect
               color={colors.blue}
               title={'PLANETAS'}
               icon={require('../../assets/images/planetas.png')}
-              onPress={() => console.log()}
+              onPress={() => Actions.list({title: 'PLANETAS', dataUrl: 'planets'})}
             />
             <CardSelect
               color={colors.yellow}
