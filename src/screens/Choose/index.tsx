@@ -5,8 +5,9 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {Header} from 'react-native-elements';
 
 import {Container} from '../../config/generalStyles';
-import {Logo} from './styles';
+import {Logo, Wrap} from './styles';
 import colors from '../../config/colors';
+import {CardSelect} from '../../components/CardSelect';
 
 const Choose: React.FC = () => {
   return (
@@ -17,11 +18,14 @@ const Choose: React.FC = () => {
         }
         containerStyle={{
           backgroundColor: colors.primary,
-          borderBottomWidth: 0
+          borderBottomWidth: 0,
         }}
       />
       <Container>
-        <SafeAreaView></SafeAreaView>
+        <Wrap>
+          <CardSelect color={colors.yellow} title={'PERSONAGENS'} />
+          <CardSelect color={colors.yellow} title={'PERSONAGENS'} />
+        </Wrap>
       </Container>
     </>
   );

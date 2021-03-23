@@ -10,3 +10,8 @@ export const Logo = styled.Image`
   width: 80px;
   margin: 0 0 10px 0;
 `;
+
+export const Wrap = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
