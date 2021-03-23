@@ -1,12 +1,13 @@
 import React from 'react';
 
 import {Header} from 'react-native-elements';
+import {Actions} from 'react-native-router-flux';
+
+import {Logo, Wrap, List} from './styles';
 
 import {Container} from '../../config/generalStyles';
-import {Logo, Wrap, List} from './styles';
 import colors from '../../config/colors';
 import {CardSelect} from '../../components/CardSelect';
-import {Actions} from 'react-native-router-flux';
 
 const Choose: React.FC = () => {
   return (

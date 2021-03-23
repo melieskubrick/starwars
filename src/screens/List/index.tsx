@@ -2,14 +2,15 @@ import React from 'react';
 import {StatusBar} from 'react-native';
 
 import {Header} from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
+import {FlatList} from 'react-native-gesture-handler';
 
 import {Logo} from './styles';
-import {Container} from '../../config/generalStyles';
-import colors from '../../config/colors';
 import ItemList from '../../components/ItemList';
-import {FlatList} from 'react-native-gesture-handler';
+
+import colors from '../../config/colors';
+import {Container} from '../../config/generalStyles';
 import typography from '../../config/typography';
-import { Actions } from 'react-native-router-flux';
 
 interface ListProps {
   title: string;
