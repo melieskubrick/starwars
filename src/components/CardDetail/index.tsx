@@ -37,7 +37,7 @@ export const CardDetail: React.FC<CardSelectProps> = ({
         <Detail>
           <Icon name={icon} color={colors.red} size={24} />
         </Detail>
-        <Title>{title}</Title>
+        <Title numberOfLines={2}>{title}</Title>
       </AlignHorizontal>
       <Description small={small}>{description}</Description>
     </Card>

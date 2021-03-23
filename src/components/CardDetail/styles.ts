@@ -3,12 +3,12 @@ import colors from '../../config/colors';
 import styled from 'styled-components/native';
 
 export const Card = styled.TouchableOpacity`
-  /* padding: 24px; */
   border-radius: 10px;
   background: ${({bgColor}) => bgColor};
   width: 44%;
   margin: 6px;
   justify-content: space-between;
+  height: 180px;
 `;
 
 export const AlignHorizontal = styled.View`
@@ -27,18 +27,20 @@ export const Detail = styled.View`
 
 export const Title = styled.Text`
   font-size: 20px;
-  font-family: ${typography.bold};
+  font-family: ${typography.light};
   color: ${colors.white};
   text-align: right;
-  margin: 24px 24px 0 0;
+  margin: 24px 20px 0 -20px;
+  width: 96px;
 `;
 
 export const Description = styled.Text`
-  font-size: ${({small}) => (small ? 50 : 60)}px;
-  font-family: ${typography.light};
+  font-size: ${({small}) => (small ? 20 : 30)}px;
+  font-family: ${typography.bold};
   color: ${colors.white};
-  text-align: center;
+  text-align: left;
   margin: 10px 24px 24px 24px;
+  text-transform: capitalize;
 `;
 
 export const Image = styled.Image.attrs({

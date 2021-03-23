@@ -1,17 +1,20 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {StatusBar} from 'react-native';
 
 import {Header, Text} from 'react-native-elements';
-import { Actions } from 'react-native-router-flux';
+import {Actions} from 'react-native-router-flux';
 import {FlatList} from 'react-native-gesture-handler';
 
 import {Logo} from './styles';
 import ItemList from '../../components/ItemList';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 import colors from '../../config/colors';
 import {Container} from '../../config/generalStyles';
 import typography from '../../config/typography';
-import { useFetch } from '../../services/api';
+import {useFetch} from '../../services/api';
+import Loading from '../../utils/Loading';
+import Animation from '../../utils/Animation';
 
 interface ListProps {
   title: string;
@@ -19,11 +22,18 @@ interface ListProps {
 }
 
 const List: React.FC<ListProps> = ({title, params}) => {
-
-  const { data } = useFetch(params.urlData);
+  const {data} = useFetch(params.urlData);
+  const cutUrl = url => {
+    var cutUrl = url.replace('http://swapi.dev/api/', '');
+    return cutUrl;
+  };
 
   if (!data) {
-    return <Text>Carregando...</Text>;
+    return (
+      <Container>
+        <Loading visible={true} />
+      </Container>
+    );
   }
 
   return (
@@ -48,18 +58,28 @@ const List: React.FC<ListProps> = ({title, params}) => {
           barStyle="light-content"
           backgroundColor={colors.darkBlue}
         />
-        <FlatList
-          data={data.results}
-          renderItem={({item}) => (
-            <ItemList
-              title={item[params.name]}
-              description={item[params.desc]}
-              imageText={'LS'}
-              onPress={() => Actions.detail({title: item[params.name]})}
-            />
-          )}
-          keyExtractor={item => `${item.name}`}
-        />
+        <Animation>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={{paddingBottom: getStatusBarHeight(true)}}
+            data={data.results}
+            renderItem={({item}) => (
+              <ItemList
+                title={item[params.name]}
+                description={item[params.desc]}
+                imageText={'LS'}
+                onPress={() =>
+                  Actions.detail({
+                    title: item[params.name],
+                    url: cutUrl(item.url),
+                    typeOf: params.urlData,
+                  })
+                }
+              />
+            )}
+            keyExtractor={item => `${item.name}`}
+          />
+        </Animation>
       </Container>
     </>
   );
