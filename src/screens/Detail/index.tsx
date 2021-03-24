@@ -43,20 +43,6 @@ const Detail = ({title, url, typeOf, indexRow}: DetailProps) => {
   const DATA = ITEM_DATA[indexRow];
   const {data: planet} = useFetch(DATA.homeworld);
 
-  useEffect(() => {
-    console.log('planet', planet);
-  }, []);
-
-  const itemInternal = (urlItem: string) => {
-    api
-      .get(urlItem)
-      .then(response => setItemInternal(response.data))
-      .catch(err => {
-        console.error('ops! ocorreu um erro' + err);
-      });
-    return itemInternalData;
-  };
-
   if (!ITEM_DATA) {
     return (
       <Container>
@@ -64,10 +50,6 @@ const Detail = ({title, url, typeOf, indexRow}: DetailProps) => {
       </Container>
     );
   }
-
-  const checkIsUrl = (text: string) => {
-    if (text.indexOf('http://') !== -1) return true;
-  };
 
   const getData = () => {
     if (typeOf === 'people') return persons;
@@ -108,8 +90,14 @@ const Detail = ({title, url, typeOf, indexRow}: DetailProps) => {
         />
         <Animation>
           <FlatList
+            numColumns={2}
+            showsVerticalScrollIndicator={false}
+            keyExtractor={item => item.name}
+            contentContainerStyle={{
+              alignItems: 'center',
+              paddingBottom: getStatusBarHeight(true),
+            }}
             data={getData()}
-            contentContainerStyle={{flexWrap: 'wrap'}}
             renderItem={({item}) => (
               <CardDetail
                 title={item.name}
@@ -120,9 +108,8 @@ const Detail = ({title, url, typeOf, indexRow}: DetailProps) => {
                       : DATA[item.param]
                     : DATA[item.param]
                 }
-                // description={item.param}
                 color={colors.darkBlue}
-                icon={'tag'}
+                icon={item.icon}
                 onPress={() => console.log}
               />
             )}

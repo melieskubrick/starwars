@@ -5,8 +5,8 @@ import styled from 'styled-components/native';
 export const Card = styled.TouchableOpacity`
   border-radius: 10px;
   background: ${({bgColor}) => bgColor};
-  width: 44%;
-  margin: 6px;
+  width: 48%;
+  margin: 4px;
   justify-content: space-between;
   height: 180px;
 `;
