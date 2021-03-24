@@ -17,12 +17,12 @@ import typography from '../../config/typography';
 import colors from '../../config/colors';
 import {Container} from '../../config/generalStyles'; 
 
-import {persons} from './persons';
-import {vehicles} from './vehicles';
-import {planets} from './planets';
-import {starships} from './starships';
-import {films} from './films';
-import {species} from './species';
+import {persons} from './types/persons';
+import {vehicles} from './types/vehicles';
+import {planets} from './types/planets';
+import {starships} from './types/starships';
+import {films} from './types/films';
+import {species} from './types/species';
 import {Actions} from 'react-native-router-flux';
 
 interface DetailProps {
