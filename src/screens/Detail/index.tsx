@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {StatusBar} from 'react-native';
 
 import {Header} from 'react-native-elements';
+import moment from 'moment';
+import 'moment/locale/pt-br';
 
 import typography from '../../config/typography';
 import colors from '../../config/colors';
@@ -16,6 +18,8 @@ import Animation from '../../utils/Animation';
 import {persons} from './persons';
 import {vehicles} from './vehicles';
 import {planets} from './planets';
+import { starships } from './starships';
+import { films } from './films';
 
 interface DetailProps {
   title: string;
@@ -94,6 +98,28 @@ const Detail: React.FC<DetailProps> = ({title, url, typeOf}) => {
                 <CardDetail
                   title={item.name}
                   description={data[item.param]}
+                  color={colors.darkBlue}
+                  icon={item.icon}
+                  onPress={() => console.log}
+                  small
+                />
+              ))
+            ) : typeOf === 'starships' ? (
+              starships.map(item => (
+                <CardDetail
+                  title={item.name}
+                  description={data[item.param]}
+                  color={colors.darkBlue}
+                  icon={item.icon}
+                  onPress={() => console.log}
+                  small
+                />
+              ))
+            ) : typeOf === 'films' ? (
+              films.map(item => (
+                <CardDetail
+                  title={item.name}
+                  description={ item.date ? moment(data[item.param]).format('d MMMM YYYY') : data[item.param]}
                   color={colors.darkBlue}
                   icon={item.icon}
                   onPress={() => console.log}

@@ -1,4 +1,4 @@
-export const vehicles = [
+export const starships = [
   {
     name: 'MODELO',
     icon: 'tag',
@@ -43,6 +43,16 @@ export const vehicles = [
     name: 'CONSUMÍVEIS',
     icon: 'tag',
     param: 'consumables',
+  },
+  {
+    name: 'HYPERDRIVE',
+    icon: 'tag',
+    param: 'hyperdrive_rating',
+  },
+  {
+    name: 'MGLT',
+    icon: 'tag',
+    param: 'MGLT',
   },
   {
     name: 'CLASSE',

@@ -41,6 +41,7 @@ export const Description = styled.Text`
   text-align: left;
   margin: 10px 24px 24px 24px;
   text-transform: capitalize;
+  max-height: 90px;
 `;
 
 export const Image = styled.Image.attrs({
