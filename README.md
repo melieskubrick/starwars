@@ -38,7 +38,7 @@ Aqui estão os arquivos e suas devidas funcionalidades dentro desta aplicação
 ![Welcome](https://user-images.githubusercontent.com/16241890/112283120-8fad8a80-8c66-11eb-8027-d014c5ec399c.png)
 
 * <b>src/Choose/index.tsx</b>
-<br/><p>  - Aqui é a tela para escolher quais informações deseja sabe! Aqui abaixo está sua demonstração</p> 
+<br/><p>  - Aqui é a tela para escolher quais informações deseja saber! Aqui abaixo está sua demonstração</p> 
 ![Choose](https://user-images.githubusercontent.com/16241890/112283241-b370d080-8c66-11eb-8848-b0ecd8975b8c.png)
 
 * <b>src/List/index.tsx</b>
