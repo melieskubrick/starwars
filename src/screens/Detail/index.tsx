@@ -35,8 +35,6 @@ interface DetailProps {
 }
 
 const Detail = ({title, url, typeOf, indexRow}: DetailProps) => {
-  const [itemInternalData, setItemInternal] = useState('');
-
   const ITEM_DATA = useSelector(
     (state: {ItemData: any}) => state.ItemData.itemData,
   );
@@ -102,10 +100,10 @@ const Detail = ({title, url, typeOf, indexRow}: DetailProps) => {
               <CardDetail
                 title={item.name}
                 description={
-                  planet
-                    ? item.param === 'homeworld'
-                      ? planet.name
-                      : DATA[item.param]
+                  item.param === 'homeworld'
+                    ? planet && planet.name
+                    : item.param === 'people'
+                    ? DATA[item.param].length
                     : DATA[item.param]
                 }
                 color={colors.darkBlue}
