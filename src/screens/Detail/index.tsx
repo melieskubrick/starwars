@@ -41,7 +41,7 @@ const Detail = ({title, url, typeOf, indexRow}: DetailProps) => {
   const DATA = ITEM_DATA[indexRow];
   const {data: planet} = useFetch(DATA.homeworld);
 
-  if (!ITEM_DATA) {
+  if (!DATA) {
     return (
       <Container>
         <Loading visible={true} />
