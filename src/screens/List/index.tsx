@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StatusBar} from 'react-native';
 
 import {Header} from 'react-native-elements';
@@ -17,18 +17,21 @@ import Loading from '../../utils/Loading';
 import Animation from '../../utils/Animation';
 import Icon from 'react-native-vector-icons/Feather';
 
+import {useDispatch} from 'react-redux';
+import {actions} from '../../store/actions';
+
 interface ListProps {
   title: string;
   params: Array<object>;
 }
 
 const List = ({title, params}: ListProps) => {
+  const dispatch = useDispatch();
   const {data} = useFetch(params.urlData);
 
-  const cutUrl = (url: string) => {
-    var cutUrl = url.replace('http://swapi.dev/api/', '');
-    return cutUrl;
-  };
+  // Dispatchers
+  const dispatchItemData = (payload: String) =>
+    dispatch(actions.itemData(payload));
 
   if (!data) {
     return (
@@ -36,7 +39,14 @@ const List = ({title, params}: ListProps) => {
         <Loading visible={true} />
       </Container>
     );
+  } else {
+    dispatchItemData(data.results);
   }
+
+  const cutUrl = (url: string) => {
+    var cutUrl = url.replace('http://swapi.dev/api/', '');
+    return cutUrl;
+  };
 
   const getUserNameToAvatar = (value: string) => {
     if (!value) {
@@ -84,7 +94,7 @@ const List = ({title, params}: ListProps) => {
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{paddingBottom: getStatusBarHeight(true)}}
             data={data.results}
-            renderItem={({item}) => (
+            renderItem={({item, index}) => (
               <ItemList
                 title={item[params.name]}
                 description={item[params.desc]}
@@ -94,6 +104,7 @@ const List = ({title, params}: ListProps) => {
                     title: item[params.name],
                     url: cutUrl(item.url),
                     typeOf: params.urlData,
+                    indexRow: index,
                   })
                 }
               />
