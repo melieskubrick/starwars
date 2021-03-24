@@ -104,6 +104,10 @@ const Detail = ({title, url, typeOf, indexRow}: DetailProps) => {
                     ? planet && planet.name
                     : item.param === 'people'
                     ? DATA[item.param].length
+                    : item.param === 'characters'
+                    ? DATA[item.param].length
+                    : item.param === 'release_date'
+                    ? moment(DATA[item.param]).format('d MMMM YYYY')
                     : DATA[item.param]
                 }
                 color={colors.darkBlue}

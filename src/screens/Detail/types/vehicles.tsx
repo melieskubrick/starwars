@@ -47,6 +47,6 @@ export const vehicles = [
   {
     name: 'CLASSE',
     icon: 'tag',
-    param: 'consumables',
+    param: 'vehicle_class',
   },
 ];

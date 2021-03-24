@@ -57,6 +57,6 @@ export const starships = [
   {
     name: 'CLASSE',
     icon: 'tag',
-    param: 'consumables',
+    param: 'starship_class',
   },
 ];
