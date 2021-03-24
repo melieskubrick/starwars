@@ -2,8 +2,12 @@ import colors from '../../config/colors';
 import typography from '../../config/typography';
 import styled from 'styled-components/native';
 
-export const ButtonPrimary = styled.TouchableOpacity`
-  background: ${({bgColor}) => bgColor};
+interface ButtonPrimaryProps {
+  backgroundColor: string;
+}
+
+export const ButtonPrimary = styled.TouchableOpacity<ButtonPrimaryProps>`
+  background: ${({backgroundColor}) => backgroundColor};
   height: 60px;
   border-radius: 10px;
   align-items: center;

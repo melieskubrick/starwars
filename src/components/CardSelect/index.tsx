@@ -12,13 +12,13 @@ interface CardSelectProps {
   onPress: (event: GestureResponderEvent) => void;
 }
 
-export const CardSelect: React.FC<CardSelectProps> = ({
+export const CardSelect = ({
   title,
   color,
   icon,
   onPress,
   smallTitle,
-}) => {
+}: CardSelectProps) => {
   return (
     <Card bgColor={color} onPress={onPress}>
       <Title small={smallTitle}>{title}</Title>

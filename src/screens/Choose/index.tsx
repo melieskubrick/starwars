@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import {Header} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
@@ -11,11 +11,7 @@ import {CardSelect} from '../../components/CardSelect';
 
 import {cards} from './cards';
 
-const Choose: React.FC = () => {
-  useEffect(() => {
-    console.log(cards[0].name);
-  }, []);
-
+const Choose = () => {
   return (
     <>
       <Header

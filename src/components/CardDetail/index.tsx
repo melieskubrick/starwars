@@ -23,14 +23,14 @@ interface CardSelectProps {
   onPress: (event: GestureResponderEvent) => void;
 }
 
-export const CardDetail: React.FC<CardSelectProps> = ({
+export const CardDetail = ({
   title,
   description,
   color,
   icon,
   onPress,
   smallTitle,
-}) => {
+}: CardSelectProps) => {
   return (
     <Card bgColor={color} onPress={onPress}>
       <AlignHorizontal>

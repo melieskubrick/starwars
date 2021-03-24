@@ -26,7 +26,7 @@ const Welcome = () => {
         <Button
           title={'Começar!'}
           onPress={() => Actions.choose()}
-          btnColor={colors.yellow}
+          buttonColor={colors.yellow}
         />
       </Center>
     </Container>

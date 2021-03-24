@@ -9,3 +9,5 @@ export const Wrap = styled.View.attrs({
   flex-wrap: wrap;
   justify-content: center;
 `;
+
+export const ButtonBack = styled.TouchableOpacity``;

@@ -5,13 +5,13 @@ import {ButtonPrimary, Title} from './styles';
 
 interface ButtonProps {
   title: string;
-  btnColor: string;
+  buttonColor: string;
   onPress: (event: GestureResponderEvent) => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({title, btnColor, onPress}) => {
+export const Button = ({title, buttonColor, onPress}: ButtonProps) => {
   return (
-    <ButtonPrimary bgColor={btnColor} onPress={onPress}>
+    <ButtonPrimary backgroundColor={buttonColor} onPress={onPress}>
       <Title>{title}</Title>
     </ButtonPrimary>
   );
