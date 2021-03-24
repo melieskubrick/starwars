@@ -25,4 +25,9 @@ export const films = [
     param: 'release_date',
     date: true
   },
+  {
+    name: 'PERSONAGENS',
+    icon: 'user',
+    param: 'characters',
+  },
 ];

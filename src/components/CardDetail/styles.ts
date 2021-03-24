@@ -35,7 +35,7 @@ export const Title = styled.Text`
 `;
 
 export const Description = styled.Text`
-  font-size: ${({small}) => (small ? 20 : 30)}px;
+  font-size: ${({small}) => (small ? 20 : 22)}px;
   font-family: ${typography.bold};
   color: ${colors.white};
   text-align: left;

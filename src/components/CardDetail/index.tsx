@@ -19,7 +19,7 @@ interface CardSelectProps {
   description: string;
   color: string;
   icon: string;
-  small?: boolean;
+  smallTitle?: boolean;
   onPress: (event: GestureResponderEvent) => void;
 }
 
@@ -29,7 +29,7 @@ export const CardDetail: React.FC<CardSelectProps> = ({
   color,
   icon,
   onPress,
-  small,
+  smallTitle,
 }) => {
   return (
     <Card bgColor={color} onPress={onPress}>
@@ -39,7 +39,7 @@ export const CardDetail: React.FC<CardSelectProps> = ({
         </Detail>
         <Title numberOfLines={2}>{title}</Title>
       </AlignHorizontal>
-      <Description small={small}>{description}</Description>
+      <Description small={smallTitle}>{description}</Description>
     </Card>
   );
 };
