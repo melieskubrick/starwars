@@ -41,6 +41,11 @@ const Detail = ({title, url, typeOf, indexRow}: DetailProps) => {
     (state: {ItemData: any}) => state.ItemData.itemData,
   );
   const DATA = ITEM_DATA[indexRow];
+  const {data: planet} = useFetch(DATA.homeworld);
+
+  useEffect(() => {
+    console.log('planet', planet);
+  }, []);
 
   const itemInternal = (urlItem: string) => {
     api
@@ -109,8 +114,10 @@ const Detail = ({title, url, typeOf, indexRow}: DetailProps) => {
               <CardDetail
                 title={item.name}
                 description={
-                  checkIsUrl(DATA[item.param])
-                    ? itemInternal(`${DATA[item.param]}`)
+                  planet
+                    ? item.param === 'homeworld'
+                      ? planet.name
+                      : DATA[item.param]
                     : DATA[item.param]
                 }
                 // description={item.param}
