@@ -15,7 +15,7 @@ import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 import typography from '../../config/typography';
 import colors from '../../config/colors';
-import {Container} from '../../config/generalStyles';
+import {Container} from '../../config/generalStyles'; 
 
 import {persons} from './persons';
 import {vehicles} from './vehicles';

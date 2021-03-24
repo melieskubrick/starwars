@@ -3,7 +3,8 @@ import React from 'react';
 import {Header} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
 
-import {Logo, Wrap, List} from './styles';
+import {Logo, Wrap, List, ButtonBack} from './styles';
+import Icon from 'react-native-vector-icons/Feather';
 
 import {Container} from '../../config/generalStyles';
 import colors from '../../config/colors';
@@ -15,6 +16,11 @@ const Choose = () => {
   return (
     <>
       <Header
+        leftComponent={
+          <ButtonBack onPress={() => Actions.pop()}>
+            <Icon name="arrow-left" color={colors.white} size={32} />
+          </ButtonBack>
+        }
         centerComponent={
           <Logo source={require('../../assets/images/logo.png')} />
         }

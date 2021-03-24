@@ -38,6 +38,19 @@ const List = ({title, params}: ListProps) => {
     );
   }
 
+  const getUserNameToAvatar = (value: string) => {
+    if (!value) {
+      return '';
+    }
+    if (value.length > 0 && value.split(' ')) {
+      const split = value.split(' ');
+      const firstname = split[0].charAt(0).toUpperCase();
+      const lastname = split[split.length - 1].charAt(0).toUpperCase();
+      return firstname + lastname;
+    }
+    return value.length > 0 ? value.charAt(0) : '';
+  };
+
   return (
     <>
       <Header
@@ -52,7 +65,7 @@ const List = ({title, params}: ListProps) => {
             color: colors.white,
             fontSize: 20,
             fontFamily: typography.bold,
-            marginTop: 10
+            marginTop: 10,
           },
         }}
         containerStyle={{
@@ -75,7 +88,7 @@ const List = ({title, params}: ListProps) => {
               <ItemList
                 title={item[params.name]}
                 description={item[params.desc]}
-                imageText={'LS'}
+                imageText={getUserNameToAvatar(item[params.name])}
                 onPress={() =>
                   Actions.detail({
                     title: item[params.name],
